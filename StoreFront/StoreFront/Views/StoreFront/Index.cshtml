@@ -10,6 +10,11 @@
 <h1>Welcome to @Model.MyStore.StoreName</h1>
 
 <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>New Releases</h1>
+        </div>
+    </div>
     <div id="ProductReleased" class="row">
         @foreach (var product in Model.MyProducts)
         {
@@ -17,19 +22,27 @@
             {
                 <div class="col-lg-6">
                     <div class="container-fluid productFrame">
-                        <div class="col-lg-4">
-                            <div class="imageProductContainer">
-                                <img class="img-responsive" src="@product.myProduct.ImageURL" />
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="imageProductContainer">
+                                    <img class="img-responsive" src="@product.myProduct.ImageURL" />
+                                </div>
+                            </div>
+                            <div class="col-lg-7 centerText">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <h3 class="headerItem">@product.myProduct.Title</h3> <h5 class="headerItem productPublisher">@product.myPublisher.PublisherName</h5>
+                                    </div>
+                                    <div class="row">
+                                        <p>@product.myProduct.Description</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 centerText">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <h3 class="headerItem">@product.myProduct.Title</h3> <h5 class="headerItem productPublisher">@product.myPublisher.PublisherName</h5>
-                                </div>
-                                <div class="row">
-                                    <p>@product.myProduct.Description</p>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-5"></div>
+                            <div class="col-lg-7">
+                                <button class="btn btn-success">Buy Now!</button>
                             </div>
                         </div>
                     </div>
@@ -37,26 +50,41 @@
             }
         }
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Coming Soon</h1>
+        </div>
+    </div>
     <div id="ProductReleased" class="row">
         @foreach (var product in Model.MyProducts)
         {
-            @if (product.myProduct.ReleaseDate >= Model.CurrentDate)
+            @if (product.myProduct.ReleaseDate > Model.CurrentDate)
             {
                 <div class="col-lg-6">
                     <div class="container-fluid productFrame">
-                        <div class="col-lg-4">
-                            <div class="imageProductContainer">
-                                <img class="img-responsive" src="@product.myProduct.ImageURL" />
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="imageProductContainer">
+                                    <img class="img-responsive" src="@product.myProduct.ImageURL" />
+                                </div>
+                            </div>
+                            <div class="col-lg-7 centerText">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <h3 class="headerItem">@product.myProduct.Title</h3> <h5 class="headerItem productPublisher">@product.myPublisher.PublisherName</h5>
+                                    </div>
+                                    <div class="row">
+                                        <p>@product.myProduct.Description</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 centerText">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <h3 class="headerItem">@product.myProduct.Title</h3> <h5 class="headerItem productPublisher">@product.myPublisher.PublisherName</h5>
-                                </div>
-                                <div class="row">
-                                    <p>@product.myProduct.Description</p>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+
+                            </div>
+                            <div class="col-lg-7">
+                                <h4>Release Date: @product.myProduct.ReleaseDate.Day-@product.myProduct.ReleaseDate.Month-@product.myProduct.ReleaseDate.Year</h4>
                             </div>
                         </div>
                     </div>

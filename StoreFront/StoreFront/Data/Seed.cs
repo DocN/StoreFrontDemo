@@ -66,7 +66,10 @@ namespace StoreFront.Data
                 {
                     currentProduct = new Product();
                     currentProduct.Title = PRODUCT_TITLES[i];
-                    currentProduct.Description = PRODUCT_DESC[i];
+                    for(int j=0; j < 10; j++)
+                    {
+                        currentProduct.Description = currentProduct.Description + PRODUCT_DESC[i];
+                    }
                     currentProduct.ImageURL = PRODUCT_IMAGEURL[i];
                     currentProduct.ReleaseDate = new DateTime(RELEASE_YEAR[i], RELEASE_MONTH[i], RELEASE_DAY[i]);
                     currentProduct.PublisherID = context.Publisher.Where(c => c.PublisherName.Equals(PUBLISHER_NAMES[i])).FirstOrDefault().PublisherID;

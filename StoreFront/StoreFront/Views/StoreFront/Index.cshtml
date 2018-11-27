@@ -6,6 +6,7 @@
 }
 
 <link rel="stylesheet" href="~/css/StoreFront.css" asp-append-version="true" />
+<script type="text/javascript" src="~/js/Custom.js"></script>
 
 <h1>Welcome to @Model.MyStore.StoreName</h1>
 
@@ -42,7 +43,7 @@
                         <div class="row">
                             <div class="col-lg-5"></div>
                             <div class="col-lg-7">
-                                <button class="btn btn-success">Buy Now!</button>
+                                <button class="btn btn-success" onclick="CreatePurchase('@(product.myProduct.Title)')">Buy Now!</button>
                             </div>
                         </div>
                     </div>

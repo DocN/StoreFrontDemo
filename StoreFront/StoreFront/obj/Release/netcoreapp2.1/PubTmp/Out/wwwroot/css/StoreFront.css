@@ -1,0 +1,42 @@
+﻿.ProductContainer {
+    background-color:red;
+}
+
+#ProductReleased {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px grey solid;
+}
+
+#ProductsComingSoon {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px grey solid;
+}
+.productFrame {
+    margin-top: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    border: 1px grey solid;
+}
+
+.centerText {
+    text-align:left;
+}
+
+.imageProductContainer {
+    width:100%;
+    min-height:323px;
+}
+
+.productPublisher {
+    margin-left:5px;
+    margin-top:2em;
+}
+
+.headerItem {
+    float:left;
+}

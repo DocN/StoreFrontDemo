@@ -10,13 +10,19 @@ namespace StoreFront.Data
 {
     public class Seed
     {
+        //store data
         private static readonly string STORE_NAME = "Ryan's Store";
+        private static readonly string STORE_ADDRESS = "123 Fake Street";
+        //product data
         private static readonly string [] PRODUCT_TITLES = new string[] { "Doom", "Starcraft", "Spyro", "Crash 4" };
         private static readonly string[] PRODUCT_DESC = new string[] { "item 1 description testing", "item 2 description testing", "item 3 description testing", "item 4 description testing" };
         private static readonly string[] PRODUCT_IMAGEURL = new string[] { "https://www.mobygames.com/images/covers/l/3907-doom-dos-front-cover.jpg", "https://www.mobygames.com/images/covers/l/2064-starcraft-windows-front-cover.jpg", "https://www.mobygames.com/images/covers/l/17925-spyro-the-dragon-playstation-front-cover.jpg", "https://www.mobygames.com/images/covers/l/86029-crash-bandicoot-playstation-front-cover.jpg" };
         private static int[] RELEASE_DAY = new int[] { 1, 2, 3, 4 };
         private static int[] RELEASE_MONTH = new int[] { 10, 11, 12, 4 };
-        private static int[] RELEASE_YEAR = new int[] { 2000, 2001, 2002, 2003 };
+        private static int[] RELEASE_YEAR = new int[] { 2000, 2001, 2019, 2020 };
+
+        //publisher data
+        private static readonly string[] PUBLISHER_NAMES = new string[] { "wow industries", "hello corp", "EA Games", "Sierra Studios", "Blizzard Entertainment" };
 
         public static async Task Initialize(StoreFrontContext context, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
@@ -29,7 +35,7 @@ namespace StoreFront.Data
                 //if not add it to the DB 
                 myStore = new Store();
                 myStore.StoreName = STORE_NAME;
-                myStore.Address = "123 Fake Street";
+                myStore.Address = STORE_ADDRESS;
                 context.Store.Add(myStore);
             }
 
@@ -48,6 +54,20 @@ namespace StoreFront.Data
                 }
             }
 
+            //add publisher data
+
+            foreach(var publisherName in PUBLISHER_NAMES)
+            {
+                Publisher currentPublisher = context.Publisher.Where(c => c.PublisherName.Equals(publisherName)).FirstOrDefault();
+                if(currentPublisher == null)
+                {
+                    currentPublisher = new Publisher();
+                    currentPublisher.PublisherName = publisherName;
+                    context.Publisher.Add(currentPublisher);
+                }
+            }
+
+            //update db
             await context.SaveChangesAsync();
         }
     }

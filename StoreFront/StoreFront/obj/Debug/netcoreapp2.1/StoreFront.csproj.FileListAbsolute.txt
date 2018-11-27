@@ -30,3 +30,4 @@ C:\dev\StoreFront\StoreFront\StoreFront\obj\Debug\netcoreapp2.1\StoreFront.Views
 C:\dev\StoreFront\StoreFront\StoreFront\obj\Debug\netcoreapp2.1\StoreFront.dll
 C:\dev\StoreFront\StoreFront\StoreFront\obj\Debug\netcoreapp2.1\StoreFront.pdb
 C:\dev\StoreFront\StoreFront\StoreFront\obj\Debug\netcoreapp2.1\StoreFront.csproj.CopyComplete
+C:\dev\StoreFront\StoreFront\StoreFront\obj\Debug\netcoreapp2.1\Razor\Views\StoreFront\Index.g.cshtml.cs

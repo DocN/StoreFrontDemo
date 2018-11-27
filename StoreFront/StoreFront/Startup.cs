@@ -59,7 +59,7 @@ namespace StoreFront
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=StoreFront}/{action=Index}/{id?}");
             });
             //seeding dummy data
             Seed.Initialize(context, roleManager, userManager).Wait();

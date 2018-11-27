@@ -198,6 +198,8 @@ namespace StoreFront.Migrations
 
                     b.Property<string>("ImageURL");
 
+                    b.Property<string>("PublisherID");
+
                     b.Property<DateTime>("ReleaseDate");
 
                     b.Property<string>("Title");

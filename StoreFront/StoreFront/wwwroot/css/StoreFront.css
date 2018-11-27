@@ -1,0 +1,32 @@
+﻿.ProductContainer {
+    background-color:red;
+}
+
+#ProductReleased {
+    padding:20px;
+    background-color: #f2f2f2;
+}
+
+.productFrame {
+    padding:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:white;
+}
+
+.centerText {
+    text-align:left;
+}
+
+.imageProductContainer {
+    min-height:323px;
+}
+
+.productPublisher {
+    margin-left:5px;
+    margin-top:2em;
+}
+
+.headerItem {
+    float:left;
+}

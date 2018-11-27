@@ -10,8 +10,8 @@ using StoreFront.Data;
 namespace StoreFront.Migrations
 {
     [DbContext(typeof(StoreFrontContext))]
-    [Migration("20181127054923_created data models")]
-    partial class createddatamodels
+    [Migration("20181127062917_initial migration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -199,6 +199,8 @@ namespace StoreFront.Migrations
                     b.Property<string>("Description");
 
                     b.Property<string>("ImageURL");
+
+                    b.Property<string>("PublisherID");
 
                     b.Property<DateTime>("ReleaseDate");
 

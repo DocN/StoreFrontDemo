@@ -39,8 +39,27 @@ namespace StoreFront.Data
                 context.Store.Add(myStore);
             }
 
+            //add publisher data
+            bool UpdateContext = false;
+            foreach (var publisherName in PUBLISHER_NAMES)
+            {
+                Publisher currentPublisher = context.Publisher.Where(c => c.PublisherName.Equals(publisherName)).FirstOrDefault();
+                if (currentPublisher == null)
+                {
+                    currentPublisher = new Publisher();
+                    currentPublisher.PublisherName = publisherName;
+                    context.Publisher.Add(currentPublisher);
+                    UpdateContext = true;
+                }
+            }
+            if(UpdateContext)
+            {
+                await context.SaveChangesAsync();
+            }
+            
+
             //add our products
-            for(int i =0; i < PRODUCT_TITLES.Length; i++)
+            for (int i =0; i < PRODUCT_TITLES.Length; i++)
             {
                 Product currentProduct = context.Product.Where(c => c.Title.Equals(PRODUCT_TITLES[i])).FirstOrDefault();
                 if (currentProduct == null)
@@ -50,20 +69,8 @@ namespace StoreFront.Data
                     currentProduct.Description = PRODUCT_DESC[i];
                     currentProduct.ImageURL = PRODUCT_IMAGEURL[i];
                     currentProduct.ReleaseDate = new DateTime(RELEASE_YEAR[i], RELEASE_MONTH[i], RELEASE_DAY[i]);
+                    currentProduct.PublisherID = context.Publisher.Where(c => c.PublisherName.Equals(PUBLISHER_NAMES[i])).FirstOrDefault().PublisherID;
                     context.Product.Add(currentProduct);
-                }
-            }
-
-            //add publisher data
-
-            foreach(var publisherName in PUBLISHER_NAMES)
-            {
-                Publisher currentPublisher = context.Publisher.Where(c => c.PublisherName.Equals(publisherName)).FirstOrDefault();
-                if(currentPublisher == null)
-                {
-                    currentPublisher = new Publisher();
-                    currentPublisher.PublisherName = publisherName;
-                    context.Publisher.Add(currentPublisher);
                 }
             }
 

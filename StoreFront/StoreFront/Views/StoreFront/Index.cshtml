@@ -1,7 +1,68 @@
 ﻿
+@model StoreFront.ViewModels.StoreFrontData
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<link rel="stylesheet" href="~/css/StoreFront.css" asp-append-version="true" />
+
+<h1>Welcome to @Model.MyStore.StoreName</h1>
+
+<div class="container">
+    <div id="ProductReleased" class="row">
+        @foreach (var product in Model.MyProducts)
+        {
+            @if (product.myProduct.ReleaseDate <= Model.CurrentDate)
+            {
+                <div class="col-lg-6">
+                    <div class="container-fluid productFrame">
+                        <div class="col-lg-4">
+                            <div class="imageProductContainer">
+                                <img class="img-responsive" src="@product.myProduct.ImageURL" />
+                            </div>
+                        </div>
+                        <div class="col-lg-8 centerText">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <h3 class="headerItem">@product.myProduct.Title</h3> <h5 class="headerItem productPublisher">@product.myPublisher.PublisherName</h5>
+                                </div>
+                                <div class="row">
+                                    <p>@product.myProduct.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div id="ProductReleased" class="row">
+        @foreach (var product in Model.MyProducts)
+        {
+            @if (product.myProduct.ReleaseDate >= Model.CurrentDate)
+            {
+                <div class="col-lg-6">
+                    <div class="container-fluid productFrame">
+                        <div class="col-lg-4">
+                            <div class="imageProductContainer">
+                                <img class="img-responsive" src="@product.myProduct.ImageURL" />
+                            </div>
+                        </div>
+                        <div class="col-lg-8 centerText">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <h3 class="headerItem">@product.myProduct.Title</h3> <h5 class="headerItem productPublisher">@product.myPublisher.PublisherName</h5>
+                                </div>
+                                <div class="row">
+                                    <p>@product.myProduct.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
 

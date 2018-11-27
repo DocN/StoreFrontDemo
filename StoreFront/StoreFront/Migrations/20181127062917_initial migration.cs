@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StoreFront.Migrations
 {
-    public partial class createddatamodels : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,6 +52,7 @@ namespace StoreFront.Migrations
                 columns: table => new
                 {
                     ProductID = table.Column<string>(nullable: false),
+                    PublisherID = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     ImageURL = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),

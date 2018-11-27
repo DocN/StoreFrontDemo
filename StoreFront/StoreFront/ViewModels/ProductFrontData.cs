@@ -1,9 +1,10 @@
-﻿using System;
+﻿using StoreFront.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StoreFront.Models
+namespace StoreFront.ViewModels
 {
     public class ProductFrontData
     {

@@ -10,6 +10,7 @@ namespace StoreFront.Models
     {
         [Key]
         public string ProductID { get; set; }
+        public string PublisherID { get; set; }
         public string Title { get; set; }
         public string ImageURL { get; set; }
         public string Description { get; set; }
